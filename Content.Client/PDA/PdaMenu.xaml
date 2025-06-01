@@ -74,6 +74,12 @@
                                        Access="Public"
                                        Text="{Loc 'pda-bound-user-interface-show-uplink-title'}"
                                        Description="{Loc 'pda-bound-user-interface-show-uplink-description'}"/>
+                <!-- WD edit start - contractors -->
+                <pda:PdaSettingsButton Name="ShowContractsButton"
+                                       Access="Public"
+                                       Text="{Loc 'pda-bound-user-interface-show-contracts-title'}"
+                                       Description="{Loc 'pda-bound-user-interface-show-contracts-description'}"/>
+                <!-- WD edit end -->
                 <pda:PdaSettingsButton Name="LockUplinkButton"
                                        Access="Public"
                                        Text="{Loc 'pda-bound-user-interface-lock-uplink-title'}"

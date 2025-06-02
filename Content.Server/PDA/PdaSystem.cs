@@ -9,6 +9,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._White.Contractors;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -50,6 +51,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
+            SubscribeLocalEvent<PdaComponent, PdaShowContractsMessage>(OnUiMessage); // WD edit - Contractors
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
@@ -243,6 +245,21 @@ namespace Content.Server.PDA
             if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid))
                 _store.ToggleUi(msg.Actor, uid);
         }
+
+        // WD edit start - Contractors
+        private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowContractsMessage msg)
+        {
+            if (!PdaUiKey.Key.Equals(msg.UiKey))
+                return;
+
+            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid))
+            {
+                _ui.SetUiState(uid, ContractsListUiKey.Key, new ContractsListState());
+                _ui.TryToggleUi(uid, ContractsListUiKey.Key, msg.Actor);
+            }
+
+        }
+        // WD edit end
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaLockUplinkMessage msg)
         {

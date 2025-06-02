@@ -71,6 +71,11 @@ namespace Content.Client.PDA
                 SendMessage(new PdaShowUplinkMessage());
             };
 
+            _menu.ShowContractsButton.OnPressed += _ => // WD edit start - Contractors
+            {
+                SendMessage(new PdaShowContractsMessage());
+            }; // WD edit end
+
             _menu.LockUplinkButton.OnPressed += _ =>
             {
                 SendMessage(new PdaLockUplinkMessage());

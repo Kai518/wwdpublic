@@ -20,6 +20,12 @@ public sealed class PdaShowUplinkMessage : BoundUserInterfaceMessage
     public PdaShowUplinkMessage() { }
 }
 
+[Serializable, NetSerializable] // WD edit start - Contractors
+public sealed class PdaShowContractsMessage : BoundUserInterfaceMessage
+{
+    public PdaShowContractsMessage() { }
+} // WD edit end
+
 [Serializable, NetSerializable]
 public sealed class PdaLockUplinkMessage : BoundUserInterfaceMessage
 {

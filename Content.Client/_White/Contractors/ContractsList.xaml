@@ -1,0 +1,19 @@
+﻿<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._White.Contractors"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'contracts-list-title'}">
+
+    <!-- Two panes in center - task slots -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="False" Margin="2 0" SetSize="200 100">
+        <Control VerticalExpand="True">
+            <controls1:Placeholder Name="FirstTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}" />
+        </Control>
+    </BoxContainer>
+    <BoxContainer Orientation="Vertical" HorizontalExpand="False" Margin="2 0" SetSize="200 100">
+        <Control VerticalExpand="True">
+            <controls1:Placeholder Name="SecondTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}" />
+        </Control>
+    </BoxContainer>
+
+</controls1:FancyWindow>

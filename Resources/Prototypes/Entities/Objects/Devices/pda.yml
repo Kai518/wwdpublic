@@ -111,6 +111,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.ContractsListUiKey.Key: # WD edit - Contractors
+        type: ContractsListBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener

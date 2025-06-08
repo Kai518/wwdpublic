@@ -33,6 +33,9 @@
     <Compile Update="_White\Contractors\ContractsList.cs">
       <DependentUpon>ContractsList.xaml</DependentUpon>
     </Compile>
+    <Compile Update="_White\Contractors\ContractsListEntry.cs">
+      <DependentUpon>ContractsListEntry.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />

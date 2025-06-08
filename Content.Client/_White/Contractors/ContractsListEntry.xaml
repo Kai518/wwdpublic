@@ -1,0 +1,9 @@
+﻿<controls:BoxContainer SetSize="300 200" Margin="5"
+                                       xmlns:controls="https://spacestation14.io"
+                                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <controls:PanelContainer SetSize="300 200">
+        <controls:PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#000000" />
+        </controls:PanelContainer.PanelOverride>
+    </controls:PanelContainer>
+</controls:BoxContainer>

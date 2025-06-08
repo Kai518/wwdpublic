@@ -1,0 +1,18 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseContractObjective
+  components:
+  - type: Objective
+    issuer: contract
+    difficulty: 0
+  - type: ContractorObjective
+
+- type: entity
+  parent: [BaseContractObjective, BaseStealObjective]
+  id: ContractStealObjective
+  components:
+  - type: ContractorObjective
+    TelecrystalsGranted: 1
+    ThreatIncrease: 100
+    DiscardCost: 50

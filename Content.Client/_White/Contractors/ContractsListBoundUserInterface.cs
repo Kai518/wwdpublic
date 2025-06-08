@@ -16,5 +16,11 @@ public sealed class ContractsListBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<ContractsList>();
+        _window.AddContract();
+        _window.AddContract();
+        _window.AddContract();
+        _window.AddContract();
+        _window.AddContract();
+        _window.AddContract();
     }
 }

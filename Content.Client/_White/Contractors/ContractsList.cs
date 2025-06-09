@@ -17,15 +17,9 @@ public sealed partial class ContractsList : FancyWindow
         RobustXamlLoader.Load(this);
     }
 
-    public void AddContract()
+    public void AddContract(string name, string description, int telecrystalgGranted, float threatIncreased)
     {
-        ContractsContainer.AddChild(new ContractsListEntry());
-    }
-
-    public void ReplacePlaceholder()
-    {
-        FirstTaskContainer.AddChild(new ContractsListEntry());
-        FirstTaskPlaceholder.Visible = false;
+        ContractsContainer.AddChild(new ContractsListEntry(name, description, telecrystalgGranted, threatIncreased));
     }
 }
 

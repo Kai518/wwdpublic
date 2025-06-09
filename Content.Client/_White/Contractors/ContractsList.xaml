@@ -1,20 +1,19 @@
-﻿<controls1:FancyWindow
+﻿<controls:FancyWindow
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._White.Contractors"
-    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Title="{Loc 'contracts-list-title'}"
-    MinWidth="950">
+    MinSize="960 600">
 
-    <BoxContainer Margin="2 0" Orientation="Vertical" VerticalExpand="True" SetSize="960 600" VerticalAlignment="Top"
+    <BoxContainer Margin="2 0" Orientation="Vertical" VerticalExpand="True"
                   HorizontalExpand="True">
-        <BoxContainer Orientation="Horizontal" Align="Center" Name="FirstTaskContainer">
+        <BoxContainer Orientation="Horizontal" Align="Center" Name="FirstTaskContainer" MinHeight="300">
             <Control Margin="0 50 30 50">
-                <controls1:Placeholder Name="FirstTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}"  SetSize="300 200" />
+                <controls:Placeholder Name="FirstTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}"  SetSize="300 200" />
             </Control>
             <Control Margin="0 50 30 50">
-                <controls1:Placeholder Name="SecondTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}" SetSize="300 200" />
+                <controls:Placeholder Name="SecondTaskPlaceholder" PlaceholderText="{Loc 'contracts-list-no-task-in-slot'}" SetSize="300 200" />
             </Control>
         </BoxContainer>
 
@@ -36,4 +35,4 @@
         </BoxContainer>
     </BoxContainer>
 
-</controls1:FancyWindow>
+</controls:FancyWindow>

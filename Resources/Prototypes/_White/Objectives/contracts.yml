@@ -16,3 +16,5 @@
     TelecrystalsGranted: 1
     ThreatIncrease: 100
     DiscardCost: 50
+  - type: StealCondition
+    stealGroup: Stamp

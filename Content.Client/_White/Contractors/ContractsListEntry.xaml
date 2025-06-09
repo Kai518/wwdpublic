@@ -1,9 +1,23 @@
-﻿<controls:BoxContainer SetSize="300 200" Margin="5"
+﻿<controls:BoxContainer MinSize="300 200" Margin="5"
                                        xmlns:controls="https://spacestation14.io"
-                                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
-    <controls:PanelContainer SetSize="300 200">
+                                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                                       xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+                                       Orientation="Vertical">
+    <controls:PanelContainer SetSize="300 30" >
+        <controls:PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#6b0101" />
+        </controls:PanelContainer.PanelOverride>
+        <controls:Label Name="NameLabel" Margin="5"></controls:Label>
+    </controls:PanelContainer>
+    <controls:PanelContainer MinSize="300 170" SetWidth="300">
         <controls:PanelContainer.PanelOverride>
             <graphics:StyleBoxFlat BackgroundColor="#000000" />
         </controls:PanelContainer.PanelOverride>
+        <controls:BoxContainer Orientation="Vertical" VerticalExpand="True">
+            <controls:RichTextLabel Name="DescriptionLabel" Margin="5" VerticalAlignment="Top"/>
+            <controls:RichTextLabel Name="TelecrystalLabel" Margin="5" VerticalAlignment="Top"/>
+            <controls:RichTextLabel Name="ThreatLabel" Margin="5" VerticalAlignment="Top"/>
+            <controls1:ConfirmButton Text="{controls:Loc 'contracts-take-contract-label'}" VerticalAlignment="Bottom"  Margin="10"/>
+        </controls:BoxContainer>
     </controls:PanelContainer>
 </controls:BoxContainer>

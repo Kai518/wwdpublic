@@ -16,10 +16,5 @@ public sealed class ContractsListBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<ContractsList>();
-        _window.AddContract("УЭЭЭЭЭ", "цуаарцунапцугаигцуапцуиащцумацупиацуамцуац", 52, 1488);
-        _window.AddContract("УЭЭЭЭЭ", "цуаарцунапцугаигцуапцуиащцумацупиацуамцуаwefwefweiufhweiufhw8efhioweufuwegfuwegfuwegfuywegfuywegfц", 52, 1488);
-        _window.AddContract("УЭЭЭЭЭ", "цуаарцунапцугаигцуапцуиащцумацупиацуамцуац", 52, 1488);
-        _window.AddContract("УЭЭЭЭЭ", "цуаарцунапцугаигцуапцуиащцумацупиацуамцуац", 52, 1488);
-
     }
 }

@@ -6,6 +6,13 @@
     Title="{Loc 'contracts-list-title'}"
     MinSize="960 600">
 
+    <PanelContainer VerticalAlignment="Top" HorizontalAlignment="Right" SetSize="150 30" Margin="10">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#636363" />
+        </PanelContainer.PanelOverride>
+        <Label Name="ThreatLabel" Text="Oscure (2.5)" Align="Center"></Label>
+    </PanelContainer>
+
     <BoxContainer Margin="2 0" Orientation="Vertical" VerticalExpand="True"
                   HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal" Align="Center" Name="FirstTaskContainer" MinHeight="300">

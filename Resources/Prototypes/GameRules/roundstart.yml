@@ -256,56 +256,56 @@
   components:
   - type: SecretRule
 
-- type: entity
-  abstract: true
-  parent: BaseGameRule
-  id: BaseWizardRule
-  components:
-  - type: AntagObjectives
-    objectives:
-    - WizardSurviveObjective
-    - WizardDemonstrateObjective
-  - type: LoadMapRule
-    gridPath: /Maps/Shuttles/wizard.yml
-  - type: RuleGrids
-  - type: AntagSelection
-  - type: AntagLoadProfileRule
-    speciesOverride: Human
-  - type: DynamicRuleCost # WD edit
-    cost: 25
-
-- type: entity
-  parent: BaseWizardRule
-  id: Wizard
-  components:
-  - type: GameRule
-    minPlayers: 10
-  - type: AntagSelection
-    agentName: wizard-round-end-name
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ Wizard ]
-      max: 1
-      playerRatio: 1
-      spawnerPrototype: SpawnPointGhostWizard
-      briefing:
-        text: wizard-role-greeting
-        color: Turquoise
-        # TODO: Need Wizard Start sound
-        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
-      startingGear: WizardGear # Goob edit
-      # TODO: WizardComp as needed
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Wizard
-      - type: Wizard # WD edit
-      - type: RandomMetadata
-        nameSegments:
-        - names_wizard_first
-        - names_wizard_last
-      mindRoles:
-      - MindRoleWizard
+#- type: entity
+#  abstract: true
+#  parent: BaseGameRule
+#  id: BaseWizardRule
+#  components:
+#  - type: AntagObjectives
+#    objectives:
+#    - WizardSurviveObjective
+#    - WizardDemonstrateObjective
+#  - type: LoadMapRule
+#    gridPath: /Maps/Shuttles/wizard.yml
+#  - type: RuleGrids
+#  - type: AntagSelection
+#  - type: AntagLoadProfileRule
+#    speciesOverride: Human
+#  - type: DynamicRuleCost # WD edit
+#    cost: 25
+#
+#- type: entity
+#  parent: BaseWizardRule
+#  id: Wizard
+#  components:
+#  - type: GameRule
+#    minPlayers: 10
+#  - type: AntagSelection
+#    agentName: wizard-round-end-name
+#    selectionTime: PrePlayerSpawn
+#    definitions:
+#    - prefRoles: [ Wizard ]
+#      max: 1
+#      playerRatio: 1
+#      spawnerPrototype: SpawnPointGhostWizard
+#      briefing:
+#        text: wizard-role-greeting
+#        color: Turquoise
+#        # TODO: Need Wizard Start sound
+#        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+#      startingGear: WizardGear # Goob edit
+#      # TODO: WizardComp as needed
+#      components:
+#      - type: NpcFactionMember
+#        factions:
+#        - Wizard
+#      - type: Wizard # WD edit
+#      - type: RandomMetadata
+#        nameSegments:
+#        - names_wizard_first
+#        - names_wizard_last
+#      mindRoles:
+#      - MindRoleWizard
 
 
 - type: entity

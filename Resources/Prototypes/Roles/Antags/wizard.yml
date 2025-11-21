@@ -5,12 +5,12 @@
   objective: roles-antag-survivor-objective
   # guides: [  ]
 
-- type: antag
-  id: Wizard
-  name: roles-antag-wizard-name
-  antagonist: true
-  setPreference: true
-  objective: roles-antag-wizard-objective # TODO: maybe give random objs and stationary ones from AntagObjectives and AntagRandomObjectives
-  guides: [ Wizard ]
+#- type: antag
+#  id: Wizard
+#  name: roles-antag-wizard-name
+#  antagonist: true
+#  setPreference: true
+#  objective: roles-antag-wizard-objective # TODO: maybe give random objs and stationary ones from AntagObjectives and AntagRandomObjectives
+#  guides: [ Wizard ]
 
 # See wizard_startinggear for wiz start gear options

@@ -38,13 +38,13 @@ objective-issuer-swf = [color=turquoise]The Space Wizards Federation[/color]
 wizard-title = Wizard
 wizard-description = There's a Wizard on the station! You never know what they might do.
 
-roles-antag-wizard-name = Wizard
+## roles-antag-wizard-name = Wizard
 roles-antag-wizard-objective = Teach them a lesson they'll never forget.
 
 wizard-role-greeting =
     YER A WIZARD!
     There's been tensions between the Space Wizards Federation and NanoTrasen.
-    So you've been selected by the Space Wizards Federation to pay a visit to the station.
+    So you've been selected by the Space Wizards Federation to pay a visit to the station {$station}.
     Give them a good demonstration of your powers.
     What you do is up to you, just remember the Space Wizards want you to make it out alive.
 

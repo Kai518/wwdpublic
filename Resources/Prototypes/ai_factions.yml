@@ -170,24 +170,24 @@
   - Blob # Goobstation - Blob
   - GeometerOfBlood # WD EDIT
 
-- type: npcFaction
-  id: Wizard
-  hostile:
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Shadowling
-  - Changeling # goob edit - changelings
-  - Blob # Goobstation - Blob
+#- type: npcFaction
+#  id: Wizard
+#  hostile:
+#  - NanoTrasen
+#  - Dragon
+#  - Mouse
+#  - Passive
+#  - PetsNT
+#  - SimpleHostile
+#  - SimpleNeutral
+#  - Syndicate
+#  - Xeno
+#  - Zombie
+#  - Revolutionary
+#  - AllHostile
+#  - Shadowling
+#  - Changeling # goob edit - changelings
+#  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Pibble

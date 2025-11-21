@@ -27,7 +27,8 @@
     - BaseStationNanotrasen
     - BaseStationDeliveries
     - BaseStationCaptainState # DeltaV
-    - BaseStationStockMarket # DeltaV
+    - BaseStationStockMarket # DeltaV\
+    - BaseStationWizardTarget # Goobstation
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

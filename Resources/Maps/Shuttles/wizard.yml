@@ -4113,7 +4113,7 @@ entities:
     - type: Transform
       pos: 6.5,-2.5
       parent: 768
-- proto: SpawnPointWizard
+- proto: SpawnPointMarkerWizard
   entities:
   - uid: 762
     components:

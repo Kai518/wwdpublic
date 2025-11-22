@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.Religion;
 using Content.Shared._White.Wizard;
+using Content.Shared._White.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -581,6 +582,8 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
+        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         _mind.TransferTo(perMind, ev.Target);
 
@@ -611,6 +614,9 @@ public abstract class SharedMagicSystem : EntitySystem
             // _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
         }
         // Goobstation end
+
+        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
         _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);

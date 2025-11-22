@@ -111,6 +111,24 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookBindSoul
+  name: spellbook-bind-soul-name
+  description: spellbook-bind-soul-desc
+  productAction: ActionBindSoul
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+#  - !type:BuyBeforeCondition
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
+  disableRefund: true
+
 # Utility
 - type: listing
   id: SpellbookPolymorphSpider
@@ -310,6 +328,23 @@
   productAction: ActionSummonMagic
   cost:
     WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventDimensionShift
+  name: spellbook-event-dimension-shift-name
+  description: spellbook-event-dimension-shift-desc
+  productEvent: !type:DimensionShiftEvent
+  icon:
+    sprite: _White/Wizard/Icons/spellbook.rsi
+    state: icemoon
+  cost:
+    WizCoin: 0
   categories:
   - SpellbookEvents
   conditions:

@@ -3,6 +3,7 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._White.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
@@ -15,6 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -47,6 +49,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goob edit
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -274,9 +277,13 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.CloneAppearance(uid, child);
         }
 
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
+
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
 
         //Ensures a map to banish the entity to
         EnsurePausedMap();
@@ -351,8 +358,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, parent, mind: mind);
+
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;

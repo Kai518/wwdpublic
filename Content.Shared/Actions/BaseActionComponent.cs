@@ -204,6 +204,13 @@ public abstract partial class BaseActionComponent : Component
     ///     If not null, this sound will be played when performing this action.
     /// </summary>
     [DataField("sound")] public SoundSpecifier? Sound;
+
+    /// <summary>
+    ///     Goobstation.
+    ///     If true, ghosts will be granted this action.
+    /// </summary>
+    [DataField]
+    public bool AllowGhostAction;
 }
 
 [Serializable, NetSerializable]

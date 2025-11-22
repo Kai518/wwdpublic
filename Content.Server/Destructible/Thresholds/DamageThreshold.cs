@@ -8,7 +8,7 @@ namespace Content.Server.Destructible.Thresholds
     public sealed partial class DamageThreshold
     {
         [DataField("behaviors")]
-        private List<IThresholdBehavior> _behaviors = new();
+        public List<IThresholdBehavior> _behaviors = new();
 
         /// <summary>
         ///     Whether or not this threshold was triggered in the previous call to

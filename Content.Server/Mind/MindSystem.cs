@@ -13,6 +13,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Wizard.BindSoul;
+using Content.Shared.Tag;
+
 
 namespace Content.Server.Mind;
 
@@ -24,6 +27,8 @@ public sealed class MindSystem : SharedMindSystem
     [Dependency] private readonly GhostSystem _ghosts = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goob edit
+
 
     public override void Initialize()
     {
@@ -361,7 +366,15 @@ public sealed class MindSystem : SharedMindSystem
             return;
         }
 
+        if (mind.OwnedEntity != null) // Goobstation
+            _tag.AddTag(mind.OwnedEntity.Value, SharedBindSoulSystem.IgnoreBindSoulTag);
+        _tag.AddTag(target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         MakeSentientCommand.MakeSentient(target, EntityManager);
         TransferTo(mindId, target, ghostCheckOverride: true, mind: mind);
+
+        if (mind.OwnedEntity != null) // Goobstation
+            _tag.AddTag(mind.OwnedEntity.Value, SharedBindSoulSystem.IgnoreBindSoulTag);
+        _tag.RemoveTag(target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
     }
 }

@@ -107,7 +107,7 @@
       components:
       - type: Wizard
       - type: RandomMetadata
-      - type: CanEnchant
+#      - type: CanEnchant
       - type: LanguageKnowledge
         speaks: []
         understands: []

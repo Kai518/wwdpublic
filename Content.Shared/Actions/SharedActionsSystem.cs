@@ -5,6 +5,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -38,6 +39,8 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+
+    private EntityQuery<BaseActionComponent> _actionQuery;
 
     public override void Initialize()
     {
@@ -194,6 +197,20 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         return TryGetActionData(uid, out result, logError);
+    }
+
+    /// <summary>
+    /// Resolving an action's <see cref="ActionComponent"/>, only returning a value if it exists and has it.
+    /// </summary>
+    public Entity<BaseActionComponent>? GetAction(Entity<BaseActionComponent?>? action, bool logError = true)
+    {
+        if (action is not {} ent || Deleted(ent))
+            return null;
+
+        if (!_actionQuery.Resolve(ent, ref ent.Comp, logError))
+            return null;
+
+        return (ent, ent.Comp);
     }
 
     public void SetCooldown(EntityUid? actionId, TimeSpan start, TimeSpan end)
@@ -907,10 +924,12 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
+        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action))
-                AddActionDirect(performer, actionId, performer.Comp, action);
+            if (GetAction(actionId) is {} action && (!ghost || action.Comp.AllowGhostAction))
+                AddActionDirect(performer, action);
         }
     }
 

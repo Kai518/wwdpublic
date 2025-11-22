@@ -1,4 +1,7 @@
 - type: Tag
+  id: BindSoulAction
+
+- type: Tag
   id: CannotSuicideAny
 
 - type: Tag
@@ -96,6 +99,9 @@
 
 - type: Tag
   id: GygaxTargetingControlModule
+
+- type: Tag
+  id: IgnoreBindSoul
 
 - type: Tag
   id: IndustrialMech

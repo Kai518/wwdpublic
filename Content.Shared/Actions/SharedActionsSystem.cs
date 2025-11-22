@@ -199,20 +199,6 @@ public abstract class SharedActionsSystem : EntitySystem
         return TryGetActionData(uid, out result, logError);
     }
 
-    /// <summary>
-    /// Resolving an action's <see cref="ActionComponent"/>, only returning a value if it exists and has it.
-    /// </summary>
-    public Entity<BaseActionComponent>? GetAction(Entity<BaseActionComponent?>? action, bool logError = true)
-    {
-        if (action is not {} ent || Deleted(ent))
-            return null;
-
-        if (!_actionQuery.Resolve(ent, ref ent.Comp, logError))
-            return null;
-
-        return (ent, ent.Comp);
-    }
-
     public void SetCooldown(EntityUid? actionId, TimeSpan start, TimeSpan end)
     {
         if (!TryGetActionData(actionId, out var action))
@@ -911,12 +897,13 @@ public abstract class SharedActionsSystem : EntitySystem
         }
     }
 
+    // Goob edit start
     /// <summary>
     ///     Grants all actions currently contained in some action-container. If the target entity has no action
     /// component, this will give them one.
     /// </summary>
-    /// <param name="performer">Entity to receive the actions</param>
-    /// <param name="container">The entity that contains thee actions.</param>
+    /// <param name="performer"></param>
+    /// <param name="container"></param>
     public void GrantContainedActions(Entity<ActionsComponent?> performer, Entity<ActionsContainerComponent?> container)
     {
         if (!Resolve(container, ref container.Comp))
@@ -928,10 +915,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (GetAction(actionId) is {} action && (!ghost || action.Comp.AllowGhostAction))
-                AddActionDirect(performer, action);
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction))
+                AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }
+    // Goob edit end
 
     /// <summary>
     ///     Grants the provided action from the container to the target entity. If the target entity has no action
